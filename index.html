@@ -157,6 +157,8 @@
             cursor: pointer;
             transform-style: preserve-3d;
             transition: transform 1s;
+            margin: 0 auto;
+            display: block;
         }
         #coin.heads {
             transform: rotateY(0deg);
@@ -660,114 +662,467 @@
                 opacity: 1;
             }
         }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.2);
+            border: none;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            transform: scale(1.1);
+            background: rgba(0, 0, 0, 0.3);
+        }
+
+        .menu-button span {
+            display: block;
+            width: 25px;
+            height: 3px;
+            background: #fff;
+            margin: 5px 0;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .menu-button.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .menu-button.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 999;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .menu-overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        .menu-content {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 250px;
+            height: 100%;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            padding: 20px;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+            z-index: 1000;
+        }
+
+        .menu-content.active {
+            transform: translateX(0);
+        }
+
+        .menu-list {
+            list-style: none;
+            padding: 0;
+            margin: 40px 0 0 0;
+        }
+
+        .menu-item {
+            margin-bottom: 15px;
+        }
+
+        .menu-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.1em;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .menu-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        @media (max-width: 768px) {
+            .menu-button {
+                top: 15px;
+                left: 15px;
+            }
+
+            .menu-content {
+                width: 200px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .menu-button {
+                top: 10px;
+                left: 10px;
+            }
+
+            .menu-content {
+                width: 180px;
+            }
+        }
+
+        .landing-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(135deg, #2e7d32, #1b5e20);
+            color: #fff;
+        }
+
+        .landing-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .landing-title {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .landing-description {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .dev-notice {
+            background: rgba(19, 241, 156, 0.1);
+            border: 1px solid #13f19c;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+            color: #fff;
+        }
+
+        .dev-notice h3 {
+            color: #13f19c;
+            margin-top: 0;
+            font-size: 1.2em;
+        }
+
+        .suggestions-list {
+            text-align: left;
+            margin: 20px 0;
+            padding: 0 20px;
+        }
+
+        .suggestions-list li {
+            margin: 10px 0;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .suggestions-list li::marker {
+            color: #13f19c;
+        }
+
+        .feedback-btn {
+            background: transparent;
+            border: 2px solid #13f19c;
+            color: #13f19c;
+            padding: 10px 20px;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .feedback-btn:hover {
+            background: #13f19c;
+            color: #000;
+            transform: translateY(-3px);
+        }
+
+        .get-started-btn {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            background: #13f19c;
+            color: #000;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(19, 241, 156, 0.3);
+        }
+
+        .get-started-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(19, 241, 156, 0.4);
+            background: #fff;
+        }
+
+        .main-content {
+            display: none;
+        }
+
+        .main-content.active {
+            display: block;
+        }
+
+        .landing-page.hidden {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .landing-title {
+                font-size: 2.5em;
+            }
+
+            .landing-description {
+                font-size: 1.1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .landing-title {
+                font-size: 2em;
+            }
+
+            .landing-description {
+                font-size: 1em;
+            }
+
+            .get-started-btn {
+                padding: 12px 25px;
+                font-size: 1.1em;
+            }
+        }
+
+        .coin-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            position: relative;
+        }
     </style>
 </head>
 <body>
-    <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
-    <audio id="tossSound" src="https://assets.mixkit.co/active_storage/sfx/2015/2015-preview.mp3" preload="auto"></audio>
-    <div class="heading-container">
-        <h1>Cricket Coin Toss</h1>
-    </div>
-    <img src="sahid.jpg" alt="Sahid" class="profile-pic" onclick="showBio()" />
-    <div id="bioModal" class="modal">
-        <div class="modal-content">
-            <span class="close-modal" onclick="closeBio()">&times;</span>
-            <div class="bio-header">
-                <img src="sahid.jpg" alt="Sahid" class="bio-picture" onclick="showFullscreenImage(this.src)" />
-                <div>
-                    <h2 class="bio-name">Sahid Aktar</h2>
-                    <p class="bio-title">Web Developer,Digital Marketer & Computer Trainer</p>
-                </div>
+    <button class="menu-button" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="menu-overlay" onclick="toggleMenu()"></div>
+
+    <div class="menu-content">
+        <div class="menu-list">
+            <div class="menu-item">
+                <a href="#" class="menu-link" onclick="showLandingPage()">
+                    <span>🏠</span>
+                    <span>Home</span>
+                </a>
             </div>
-            <div class="bio-grid">
-                <div class="bio-section">
-                    <h3 class="bio-section-title">Personal Information</h3>
-                    <div class="bio-info">
-                        <i>📅</i>
-                        <span>Date of Birth: September 25, 2007</span>
-                    </div>
-                    <div class="bio-info">
-                        <i>📍</i>
-                        <span>Address: Kumbhira, Sabdalpur, Baishnabnagar, Malda, 732201, West Bengal, India
-                        </span>
-                    </div>
-                    <div class="bio-info">
-                        <i>📧</i>
-                        <span>Email: sahidaktar468@gmail.com</span>
-                    </div>
-                    <div class="bio-info">
-                        <i>📱</i>
-                        <span>Phone: +91 97757 65498</span>
+            <div class="menu-item">
+                <a href="#" class="menu-link" onclick="showBio(); toggleMenu();">
+                    <span>ℹ️</span>
+                    <span>About</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="#contact" class="menu-link" onclick="toggleMenu()">
+                    <span>📧</span>
+                    <span>Contact</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="https://www.electromart.space" class="menu-link" target="_blank">
+                    <span>🌐</span>
+                    <span>Website</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="tel:+919775765498" class="menu-link">
+                    <span>📞</span>
+                    <span>Call Me</span>
+                </a>
+            </div>
+            <div class="menu-item">
+                <a href="https://wa.me/919775765498" class="menu-link" target="_blank">
+                    <span>💬</span>
+                    <span>WhatsApp</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="landing-page">
+        <div class="landing-content">
+            <h1 class="landing-title">Welcome to Cricket Coin Toss</h1>
+            <p class="landing-description">
+                Experience the thrill of cricket coin toss in a modern and interactive way. 
+                Our application provides a realistic coin toss simulation that helps you make 
+                decisions in cricket matches. Whether you're a player, coach, or just a cricket 
+                enthusiast, our tool makes the coin toss process fun and engaging.
+            </p>
+            
+            <div class="dev-notice">
+                <h3>🚧 Website Under Development</h3>
+                <p>We're continuously working to improve your experience.</p>
+                <p>Have suggestions? We'd love to hear from you!</p>
+                <button class="feedback-btn" onclick="window.open('https://wa.me/919775765498', '_blank')">Contact Developer</button>
+            </div>
+
+            <button class="get-started-btn" onclick="showMainContent()">Get Started</button>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <audio id="clickSound" src="https://assets.mixkit.co/active_storage/sfx/2571/2571-preview.mp3" preload="auto"></audio>
+        <audio id="tossSound" src="https://assets.mixkit.co/active_storage/sfx/2015/2015-preview.mp3" preload="auto"></audio>
+        <audio id="menuClickSound" src="https://assets.mixkit.co/active_storage/sfx/2570/2570-preview.mp3" preload="auto"></audio>
+        <audio id="buttonClickSound" src="https://assets.mixkit.co/active_storage/sfx/2569/2569-preview.mp3" preload="auto"></audio>
+        <audio id="startClickSound" src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" preload="auto"></audio>
+        <audio id="contactClickSound" src="https://assets.mixkit.co/active_storage/sfx/2567/2567-preview.mp3" preload="auto"></audio>
+        <audio id="spinSound" src="https://assets.mixkit.co/active_storage/sfx/2014/2014-preview.mp3" preload="auto"></audio>
+        <audio id="landSound" src="https://assets.mixkit.co/active_storage/sfx/2013/2013-preview.mp3" preload="auto"></audio>
+        <audio id="successSound" src="https://assets.mixkit.co/active_storage/sfx/2012/2012-preview.mp3" preload="auto"></audio>
+        <audio id="headsVoice" src="https://assets.mixkit.co/active_storage/sfx/2011/2011-preview.mp3" preload="auto"></audio>
+        <audio id="tailsVoice" src="https://assets.mixkit.co/active_storage/sfx/2010/2010-preview.mp3" preload="auto"></audio>
+        <div class="coin-container">
+            <div class="heading-container">
+                <h1>Cricket Coin Toss</h1>
+            </div>
+            <div id="coin">
+                <div id="heads" class="side"></div>
+                <div id="tails" class="side"></div>
+            </div>
+            <div id="result">Click the coin or press Spacebar to toss!</div>
+        </div>
+        <img src="sahid.jpg" alt="Sahid" class="profile-pic" onclick="showBio()" />
+        <div id="bioModal" class="modal">
+            <div class="modal-content">
+                <span class="close-modal" onclick="closeBio()">&times;</span>
+                <div class="bio-header">
+                    <img src="sahid.jpg" alt="Sahid" class="bio-picture" onclick="showFullscreenImage(this.src)" />
+                    <div>
+                        <h2 class="bio-name">Sahid Aktar</h2>
+                        <p class="bio-title">Web Developer,Digital Marketer & Computer Trainer</p>
                     </div>
                 </div>
-                <div class="bio-section">
-                    <h3 class="bio-section-title">Professional Details</h3>
-                    <div class="bio-info">
-                        <i>💼</i>
-                        <span>Occupation: Web Developer & Computer Trainer</span>
+                <div class="bio-grid">
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">Personal Information</h3>
+                        <div class="bio-info">
+                            <i>📅</i>
+                            <span>Date of Birth: September 25, 2007</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>📍</i>
+                            <span>Address: Kumbhira, Sabdalpur, Baishnabnagar, Malda, 732201, West Bengal, India
+                            </span>
+                        </div>
+                        <div class="bio-info">
+                            <i>📧</i>
+                            <span>Email: sahidaktar468@gmail.com</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>📱</i>
+                            <span>Phone: +91 97757 65498</span>
+                        </div>
                     </div>
-                    <div class="bio-info">
-                        <i>🎓</i>
-                        <span>Education: 12th Running</span>
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">Professional Details</h3>
+                        <div class="bio-info">
+                            <i>💼</i>
+                            <span>Occupation: Web Developer & Computer Trainer</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>🎓</i>
+                            <span>Education: 12th Running</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>🌐</i>
+                            <span>Website: <a href="https://www.electromart.space" style="color: #13f19c; text-decoration: none;">www.electromart.space</a></span>
+                        </div>
                     </div>
-                    <div class="bio-info">
-                        <i>🌐</i>
-                        <span>Website: <a href="https://www.electromart.space" style="color: #13f19c; text-decoration: none;">www.electromart.space</a></span>
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">Interests</h3>
+                        <div class="bio-info">
+                            <i>🏢</i>
+                            <span>Buisness</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>💻</i>
+                            <span>Web Development</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>🎮</i>
+                            <span>Gaming</span>
+                        </div>
                     </div>
-                </div>
-                <div class="bio-section">
-                    <h3 class="bio-section-title">Interests</h3>
-                    <div class="bio-info">
-                        <i>🏢</i>
-                        <span>Buisness</span>
-                    </div>
-                    <div class="bio-info">
-                        <i>💻</i>
-                        <span>Web Development</span>
-                    </div>
-                    <div class="bio-info">
-                        <i>🎮</i>
-                        <span>Gaming</span>
-                    </div>
-                </div>
-                <div class="bio-section">
-                    <h3 class="bio-section-title">Connect With Me</h3>
-                    <div class="social-links">
-                        <a href="tel:+919775765498" class="social-link" title="Call Me">📞</a>
-                        <a href="https://wa.me/919775765498" class="social-link" title="WhatsApp">💬</a>
-                        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sahidaktar468@gmail.com.com&su=Hello&body=I%20want%20to%20contact%20you." target="_blank"" class="social-link" title="Email">📧</a>
-                        <a href="https://www.electromart.space" class="social-link" title="Website">🌐</a>
-                        <a href="https://www.facebook.com/sahidaktar947" class="social-link" title="Facebook">📱</a>
-                        <a href="https://www.instagram.com/sahidaktar947" class="social-link" title="Instagram">📸</a>
-                    </div>
-                    <div class="bio-info" style="margin-top: 15px;">
-                        <i>🔗</i>
-                        <span>Quick Links:</span>
-                    </div>
-                    <div class="bio-info">
-                        <i>📱</i>
-                        <span><a href="tel:+919775765498" style="color: #13f19c; text-decoration: none;">Call: +91 97757 65498</a></span>
-                    </div>
-                    <div class="bio-info">
-                        <i>📧</i>
-                        <span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=sahidaktar468@gmail.com.com&su=Hello&body=I%20want%20to%20contact%20you." style="color: #13f19c; text-decoration: none;">Email: sahidaktar468@gmail.com</a></span>
-                    </div>
-                    <div class="bio-info">
-                        <i>🌐</i>
-                        <span><a href="https://www.electromart.space" style="color: #13f19c; text-decoration: none;">Website: www.electromart.space</a></span>
+                    <div class="bio-section">
+                        <h3 class="bio-section-title">Connect With Me</h3>
+                        <div class="social-links">
+                            <a href="tel:+919775765498" class="social-link" title="Call Me">📞</a>
+                            <a href="https://wa.me/919775765498" class="social-link" title="WhatsApp">💬</a>
+                            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=sahidaktar468@gmail.com.com&su=Hello&body=I%20want%20to%20contact%20you." target="_blank"" class="social-link" title="Email">📧</a>
+                            <a href="https://www.electromart.space" class="social-link" title="Website">🌐</a>
+                            <a href="https://www.facebook.com/sahidaktar947" class="social-link" title="Facebook">📱</a>
+                            <a href="https://www.instagram.com/sahidaktar947" class="social-link" title="Instagram">📸</a>
+                        </div>
+                        <div class="bio-info" style="margin-top: 15px;">
+                            <i>🔗</i>
+                            <span>Quick Links:</span>
+                        </div>
+                        <div class="bio-info">
+                            <i>📱</i>
+                            <span><a href="tel:+919775765498" style="color: #13f19c; text-decoration: none;">Call: +91 97757 65498</a></span>
+                        </div>
+                        <div class="bio-info">
+                            <i>📧</i>
+                            <span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=sahidaktar468@gmail.com.com&su=Hello&body=I%20want%20to%20contact%20you." style="color: #13f19c; text-decoration: none;">Email: sahidaktar468@gmail.com</a></span>
+                        </div>
+                        <div class="bio-info">
+                            <i>🌐</i>
+                            <span><a href="https://www.electromart.space" style="color: #13f19c; text-decoration: none;">Website: www.electromart.space</a></span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="coin">
-        <div id="heads" class="side"></div>
-        <div id="tails" class="side"></div>
-    </div>
-    <div id="result">Click the coin or press Spacebar to toss!</div>
-    <div class="fullscreen-image" onclick="closeFullscreenImage()">
-        <span class="close-fullscreen" onclick="closeFullscreenImage()">&times;</span>
-        <img src="" alt="Fullscreen Image" />
+        <div class="fullscreen-image" onclick="closeFullscreenImage()">
+            <span class="close-fullscreen" onclick="closeFullscreenImage()">&times;</span>
+            <img src="" alt="Fullscreen Image" />
+        </div>
     </div>
 
     <script>
@@ -775,13 +1130,57 @@
         const resultDisplay = document.getElementById('result');
         const clickSound = document.getElementById('clickSound');
         const tossSound = document.getElementById('tossSound');
+        const menuClickSound = document.getElementById('menuClickSound');
+        const buttonClickSound = document.getElementById('buttonClickSound');
+        const startClickSound = document.getElementById('startClickSound');
+        const contactClickSound = document.getElementById('contactClickSound');
+        const spinSound = document.getElementById('spinSound');
+        const landSound = document.getElementById('landSound');
+        const successSound = document.getElementById('successSound');
+        const headsVoice = document.getElementById('headsVoice');
+        const tailsVoice = document.getElementById('tailsVoice');
+
+        // Function to play different click sounds
+        function playMenuClickSound() {
+            menuClickSound.currentTime = 0;
+            menuClickSound.play();
+        }
+
+        function playButtonClickSound() {
+            buttonClickSound.currentTime = 0;
+            buttonClickSound.play();
+        }
+
+        function playStartClickSound() {
+            startClickSound.currentTime = 0;
+            startClickSound.play();
+        }
+
+        function playContactClickSound() {
+            contactClickSound.currentTime = 0;
+            contactClickSound.play();
+        }
+
+        // Add click sounds to menu button
+        document.querySelector('.menu-button').addEventListener('click', playMenuClickSound);
+
+        // Add click sounds to menu items
+        document.querySelectorAll('.menu-link').forEach(link => {
+            link.addEventListener('click', playButtonClickSound);
+        });
+
+        // Add click sound to Get Started button
+        document.querySelector('.get-started-btn').addEventListener('click', playStartClickSound);
+
+        // Add click sound to Contact Developer button
+        document.querySelector('.feedback-btn').addEventListener('click', playContactClickSound);
 
         function getRandomResult() {
             return Math.random() < 0.5 ? 'heads' : 'tails';
         }
 
         function tossCoin() {
-            // Play click sound
+            // Play initial click sound
             clickSound.currentTime = 0;
             clickSound.play();
             
@@ -795,6 +1194,12 @@
             setTimeout(() => {
                 tossSound.currentTime = 0;
                 tossSound.play();
+                
+                // Play spinning sound
+                setTimeout(() => {
+                    spinSound.currentTime = 0;
+                    spinSound.play();
+                }, 500);
             }, 200);
             
             // Get random result
@@ -805,6 +1210,28 @@
                 coin.classList.remove('flipping');
                 coin.classList.remove('heads', 'tails');
                 coin.classList.add(result);
+                
+                // Play landing sound
+                landSound.currentTime = 0;
+                landSound.play();
+                
+                // Play result voice
+                setTimeout(() => {
+                    if (result === 'heads') {
+                        headsVoice.currentTime = 0;
+                        headsVoice.play();
+                    } else {
+                        tailsVoice.currentTime = 0;
+                        tailsVoice.play();
+                    }
+                }, 500);
+                
+                // Play success sound
+                setTimeout(() => {
+                    successSound.currentTime = 0;
+                    successSound.play();
+                }, 800);
+                
                 resultDisplay.textContent = result.charAt(0).toUpperCase() + result.slice(1);
                 // Re-enable clicking
                 coin.style.pointerEvents = 'auto';
@@ -826,10 +1253,12 @@
         });
 
         function showBio() {
+            playButtonClickSound();
             document.getElementById('bioModal').style.display = 'block';
         }
 
         function closeBio() {
+            playButtonClickSound();
             document.getElementById('bioModal').style.display = 'none';
         }
 
@@ -842,6 +1271,7 @@
         }
 
         function showFullscreenImage(src) {
+            playButtonClickSound();
             const fullscreen = document.querySelector('.fullscreen-image');
             const img = fullscreen.querySelector('img');
             img.src = src;
@@ -850,6 +1280,7 @@
         }
 
         function closeFullscreenImage() {
+            playButtonClickSound();
             const fullscreen = document.querySelector('.fullscreen-image');
             fullscreen.style.display = 'none';
             document.body.style.overflow = 'auto';
@@ -860,6 +1291,64 @@
             if (e.target === this) {
                 closeFullscreenImage();
             }
+        });
+
+        // Menu functionality
+        function toggleMenu() {
+            playMenuClickSound();
+            const menuButton = document.querySelector('.menu-button');
+            const menuOverlay = document.querySelector('.menu-overlay');
+            const menuContent = document.querySelector('.menu-content');
+
+            menuButton.classList.toggle('active');
+            menuOverlay.classList.toggle('active');
+            menuContent.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            const menuContent = document.querySelector('.menu-content');
+            const menuButton = document.querySelector('.menu-button');
+            
+            if (!menuContent.contains(e.target) && !menuButton.contains(e.target)) {
+                menuButton.classList.remove('active');
+                document.querySelector('.menu-overlay').classList.remove('active');
+                menuContent.classList.remove('active');
+            }
+        });
+
+        // Close menu when pressing Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                const menuButton = document.querySelector('.menu-button');
+                const menuOverlay = document.querySelector('.menu-overlay');
+                const menuContent = document.querySelector('.menu-content');
+
+                menuButton.classList.remove('active');
+                menuOverlay.classList.remove('active');
+                menuContent.classList.remove('active');
+            }
+        });
+
+        // Landing page and main content functionality
+        function showMainContent() {
+            playStartClickSound();
+            document.querySelector('.landing-page').classList.add('hidden');
+            document.querySelector('.main-content').classList.add('active');
+        }
+
+        function showLandingPage() {
+            playButtonClickSound();
+            document.querySelector('.landing-page').classList.remove('hidden');
+            document.querySelector('.main-content').classList.remove('active');
+            toggleMenu(); // Close the menu
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Show landing page by default
+            document.querySelector('.landing-page').classList.remove('hidden');
+            document.querySelector('.main-content').classList.remove('active');
         });
     </script>
     <footer style="position: absolute; bottom: 0; width: 100%; padding: 20px 0; color: #fff; text-align: center; font-size: 16px; opacity: 0.8;">
